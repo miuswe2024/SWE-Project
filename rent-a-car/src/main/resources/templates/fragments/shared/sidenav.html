@@ -1,0 +1,42 @@
+<div class="bg-light border-right" id="sidebar-wrapper" th:fragment="sidenav">
+    <div class="list-group list-group-flush">
+        <div class="sidebar-heading"><strong>Menu</strong></div>
+        <a class="list-group-item list-group-item-action bg-light" href="/">
+            Search Car
+        </a>
+        <div th:if="${#request.isUserInRole('ADMIN')}">
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/admin/add-new-car">
+                Add New Car
+            </a>
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/admin/all-cars">
+                All Cars
+            </a>
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/admin/add-new-customer">
+                Add New Customer
+            </a>
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/admin/all-customers">
+                All Customers
+            </a>
+        </div>
+        <div th:if="${#request.isUserInRole('EMPLOYEE') || #request.isUserInRole('ADMIN')}">
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/employee/add-new-rental">
+                Add New Rental
+            </a>
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/employee/running-rentals">
+                Running rentals
+            </a>
+        </div>
+        <div th:if="${#request.isUserInRole('ADMIN')}">
+            <a class="list-group-item list-group-item-action bg-light"
+               href="/admin/all-rentals">
+                All rentals
+            </a>
+        </div>
+    </div>
+</div>
